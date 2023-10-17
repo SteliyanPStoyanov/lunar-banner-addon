@@ -1,8 +1,4 @@
-<p style="text-align: center"><a href="https://lunarphp.io/" target="_blank">
-<picture><source media="(prefers-color-scheme: dark)"  srcset="">
-<img alt="Lunar" width="200" src="https://raw.githubusercontent.com/lunarphp/art/main/lunar-logo.svg"></picture></a>
-</p>
-
+<p align="center"><a href="https://lunarphp.io/" target="_blank"><picture><source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/lunarphp/art/main/lunar-logo-dark.svg"><img alt="Lunar" width="200" src="https://raw.githubusercontent.com/lunarphp/art/main/lunar-logo.svg"></picture></a></p>
 
 <p style="text-align: center">This addon enables Banner on your Lunar Hub.</p>
 
