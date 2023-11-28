@@ -6,7 +6,7 @@
         </x-slot>
 
         <x-slot name="content">
-            <x-hub::input.group :label="__('adminhub::inputs.name')"
+            <x-hub::input.group :label="{{ __('adminhub::inputs.name') }}"
                                 for="name"
                                 :error="$errors->first('name')" required="required">
                 <x-hub::input.text wire:model="name"
