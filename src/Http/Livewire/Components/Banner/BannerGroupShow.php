@@ -403,7 +403,7 @@ class BannerGroupShow extends Component
 
         return view('banner::livewire.components.banner.banner-groups.show')
             ->layout('banner::layouts.banner-groups', [
-                'title' => __('adminhub::catalogue.banners.index.title'),
+                'title' => __('banner::catalogue.banners.index.title'),
             ]);
     }
 }
