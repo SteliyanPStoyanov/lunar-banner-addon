@@ -3,9 +3,7 @@
         <div wire:key="node_{{ $node['id'] }}" sort.item="{{ $sortGroup }}" sort.id="{{ $node['id'] }}" >
             <div class="flex items-center">
                 <div wire:loading wire:target="sort">
-                    <x-hub::icon ref="refresh"
-                                 style="solid"
-                                 class="w-5 mr-2 text-gray-300 rotate-180 animate-spin" />
+                    <x-hub::icon ref="refresh" style="solid" class="w-5 mr-2 text-gray-300 rotate-180 animate-spin" />
                 </div>
                 <div wire:loading.remove wire:target="sort">
                     <div sort.handle class="cursor-grab">
@@ -26,14 +24,10 @@
                     <div class="flex items-center justify-end w-16">
                         <x-hub::dropdown  minimal="minimal">
                             <x-slot name="options">
-                                <x-hub::dropdown.link wire:click.prevent="editBanner('{{ $node['id'] }}')"
-                                                      class="flex items-center cursor-pointer justify-between px-4 py-2 text-sm text-gray-700 border-b hover:bg-gray-50">
+                                <x-hub::dropdown.link wire:click.prevent="editBanner('{{ $node['id'] }}')" class="flex items-center cursor-pointer justify-between px-4 py-2 text-sm text-gray-700 border-b hover:bg-gray-50">
                                     {{ __('banner::catalogue.banners.groups.node.edit') }}
-                                    <x-hub::icon ref="pencil"
-                                                 style="solid"
-                                                 class="w-4" />
+                                    <x-hub::icon ref="pencil" style="solid" class="w-4" />
                                 </x-hub::dropdown.link>
-
                                 <x-hub::dropdown.button wire:click.prevent="removeBanner('{{ $node['id'] }}')">
                                     {{ __('banner::catalogue.banners.groups.node.delete') }}
                                 </x-hub::dropdown.button>
