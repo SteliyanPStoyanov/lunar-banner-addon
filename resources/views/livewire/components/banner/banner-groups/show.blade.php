@@ -35,7 +35,7 @@
                         <x-hub::alert level="danger">
                             {{ __('banner::catalogue.banners.groups.delete.warning') }}
                         </x-hub::alert>
-                        <x-hub::input.group :label="{{ __('banner::catalogue.banners.groups.delete.confirm') }}" for="confirmation">
+                        <x-hub::input.group :label="__('banner::catalogue.banners.groups.delete.confirm')" for="confirmation">
                             <x-hub::input.toggle wire:model="deletionConfirm" id="confirmation"/>
                         </x-hub::input.group>
                     </div>
@@ -55,10 +55,10 @@
                 </x-slot>
                 <x-slot name="content">
                     <div class="space-y-4">
-                        <x-hub::input.group :label="{{ __('adminhub::inputs.name') }}" for="name" :error="$errors->first('banner.name')" required="required">
+                        <x-hub::input.group :label="__('adminhub::inputs.name')" for="name" :error="$errors->first('banner.name')" required="required">
                             <x-hub::input.text wire:model="banner.name" :error="$errors->first('banner.name')"/>
                         </x-hub::input.group>
-                        <x-hub::input.group :label="{{ __('banner::inputs.link') }}" for="name" :error="$errors->first('banner.link')" required="required">
+                        <x-hub::input.group :label="__('banner::inputs.link')" for="name" :error="$errors->first('banner.link')" required="required">
                             <x-hub::input.text wire:model="banner.link" :error="$errors->first('banner.link')"/>
                         </x-hub::input.group>
                         <div id="attributes">
@@ -66,19 +66,14 @@
                         </div>
                         @include('adminhub::partials.image-manager', [ 'existing' => $images, 'wireModel' => 'imageUploadQueue', 'filetypes' => ['image/*'] ])
                         @if ($this->slugIsRequired)
-                            <x-hub::input.group :label="{{__('adminhub::inputs.slug.label') }}"
-                                                for="slug"
-                                                :error="$errors->first('slug')"
-                                                required="required">
+                            <x-hub::input.group :label="__('adminhub::inputs.slug.label')" for="slug" :error="$errors->first('slug')" required="required">
                                 <x-hub::input.text wire:model.lazy="slug" :error="$errors->first('slug')"/>
                             </x-hub::input.group>
                         @endif
                     </div>
                 </x-slot>
                 <x-slot name="footer">
-                    <x-hub::button type="button"
-                                   wire:click.prevent="$set('showCreateForm', false)"
-                                   theme="gray">
+                    <x-hub::button type="button" wire:click.prevent="$set('showCreateForm', false)" theme="gray">
                         {{ __('adminhub::global.cancel') }}
                     </x-hub::button>
 
@@ -89,27 +84,19 @@
             </x-hub::modal.dialog>
 
             @if ($this->bannerToRemove)
-                <x-hub::modal.dialog wire:model="bannerToRemoveId"
-                                     form="deleteBanner">
+                <x-hub::modal.dialog wire:model="bannerToRemoveId" form="deleteBanner">
                     <x-slot name="title">
                         {{ __('banner::catalogue.banners.delete.title') }}
                     </x-slot>
-
                     <x-slot name="content">
                         <p>{{ __('banner::catalogue.banners.delete.root.warning') }}</p>
-
                     </x-slot>
-
                     <x-slot name="footer">
                         <div class="flex justify-between">
-                            <x-hub::button type="button"
-                                           wire:click.prevent="$set('bannerToRemoveId', null)"
-                                           theme="gray">
+                            <x-hub::button type="button" wire:click.prevent="$set('bannerToRemoveId', null)" theme="gray">
                                 {{ __('adminhub::global.cancel') }}
                             </x-hub::button>
-
-                            <x-hub::button type="submit"
-                                           theme="danger">
+                            <x-hub::button type="submit" theme="danger">
                                 {{ __('banner::catalogue.banners.delete.btn') }}
                             </x-hub::button>
                         </div>
@@ -117,15 +104,7 @@
                 </x-hub::modal.dialog>
             @endif
             <div class="mt-4 space-y-2">
-                @livewire(
-                'components.banner.tree',
-                [
-                'nodes' => $tree,
-                'sortGroup' => 'root',
-                'owner' => $group,
-                ],
-                key('tree-root'),
-                )
+                @livewire('components.banner.tree',['nodes' => $tree,'sortGroup' => 'root','owner' => $group,],key('tree-root'),)
             </div>
         </div>
     </div>
