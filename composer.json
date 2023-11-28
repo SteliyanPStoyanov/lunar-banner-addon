@@ -1,6 +1,6 @@
 {
     "name": "lunar-banner/addon",
-    "version": "0.1",
+    "version": "0.1.1",
     "type": "project",
     "description": "Banner functionality for Lunar.",
     "keywords": [
