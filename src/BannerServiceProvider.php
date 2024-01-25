@@ -32,19 +32,20 @@ class BannerServiceProvider extends ServiceProvider
     public function boot(): void
     {
 
+        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'banner');
+
         $manifestAttribute = app(AttributeManifestInterface::class);
         $manifestAttribute->addType(Banner::class);
 
         $this->app->booted(function () {
             $manifest = $this->app->get(Manifest::class);
             $manifest->addPermission(function (Permission $permission) {
-                $permission->name = 'Manage banner';
+                $permission->name = __('banner::global.manage.banner.title');
                 $permission->handle = 'manage-banner'; // or 'group:handle to group permissions
-                $permission->description = 'Allow the staff member to manage banner';
+                $permission->description = __('banner::global.manage.banner.description');
             });
         });
 
-        $this->loadTranslationsFrom(__DIR__ . '/../resources/lang', 'banner');
 
         $slot = Menu::slot('sidebar');
 
@@ -61,6 +62,8 @@ class BannerServiceProvider extends ServiceProvider
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'banner');
 
         $this->loadMigrationsFrom(__DIR__ . '/../database/migrations');
+
+        $this->publishes([__DIR__ . '/../resources/lang' => resource_path('lang/vendor/banner')], 'banner_lang');
 
         $this->registerLivewireComponents();
 
